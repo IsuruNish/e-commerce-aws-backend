@@ -1,5 +1,6 @@
 package com.ecommerce.auth_module.Service;
 
+import com.ecommerce.auth_module.Model.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -32,11 +33,11 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(User userDetails) throws IllegalAccessException {
         return generateToken(new HashMap<>(), userDetails);
     }
 
-    public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    public String generateToken(Map<String, Object> extraClaims, User userDetails) throws IllegalAccessException {
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
@@ -46,9 +47,12 @@ public class JwtService {
 
     private String buildToken(
             Map<String, Object> extraClaims,
-            UserDetails userDetails,
+            User userDetails,
             long expiration
     ) {
+
+        extraClaims.put("user", new User(userDetails.getId(), userDetails.getName(), userDetails.getEmail(), userDetails.getRole()));
+
         return Jwts
                 .builder()
                 .setClaims(extraClaims)
