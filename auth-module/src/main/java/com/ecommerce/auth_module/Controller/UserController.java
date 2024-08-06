@@ -44,6 +44,8 @@ public class UserController {
         catch(Error e){
             LoginResponse loginResponse = new LoginResponse("Could not signup: " + e.getMessage());
             return ResponseEntity.badRequest().body(loginResponse);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
     }
 }

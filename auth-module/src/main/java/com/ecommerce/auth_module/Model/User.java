@@ -25,12 +25,6 @@ public class User implements UserDetails {
     private String name;
     private String role;
 
-    public User(String email, String password, String name) {
-        this.email = email;
-        this.password = password;
-        this.name = name;
-    }
-
     public User(String email, String password, String name, String role) {
         this.email = email;
         this.password = password;
@@ -38,9 +32,11 @@ public class User implements UserDetails {
         this.role = role;
     }
 
-    public User(String email, String password) {
+    public User(int id, String name, String email, String role) {
+        this.id = id;
+        this.name = name;
         this.email = email;
-        this.password = password;
+        this.role = role;
     }
 
     @Override
