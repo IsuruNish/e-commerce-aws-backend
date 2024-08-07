@@ -1,4 +1,4 @@
-package com.ecommerce.inventory_module.Config;
+package com.ecommerce.buyer_module.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(c -> c.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/products/**").permitAll()
+                        .requestMatchers("/api/order/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
