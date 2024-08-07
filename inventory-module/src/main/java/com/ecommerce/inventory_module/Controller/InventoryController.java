@@ -51,10 +51,10 @@ public class InventoryController {
 
 
     //todo: do this
-    @PostMapping("/checkout")
-    public ResponseEntity<Product> updateInventory(@RequestBody ProductDto productDto) {
+//    @PostMapping("/checkout")
+//    public ResponseEntity<Product> updateInventory(@RequestBody ProductDto productDto) {
 //        Product product = inventoryService.updateProduct(productDto);
 //        return ResponseEntity.ok(product);
-    }
+//    }
 
 }
