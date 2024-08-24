@@ -1,4 +1,4 @@
-package com.ecommerce.delivery_module.Model;
+package com.ecommerce.inventory_module.Dao;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Payment {
+public class PaymentDao {
     private String cardName;
     private String cardNumber;
     private String ExpDate;

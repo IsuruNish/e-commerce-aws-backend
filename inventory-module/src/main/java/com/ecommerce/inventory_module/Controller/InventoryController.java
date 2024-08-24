@@ -1,14 +1,13 @@
 package com.ecommerce.inventory_module.Controller;
 
+import com.ecommerce.inventory_module.Dao.PaymentDao;
 import com.ecommerce.inventory_module.Dao.ProductDto;
 import com.ecommerce.inventory_module.Model.Product;
 import com.ecommerce.inventory_module.Service.InventoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/products")
@@ -49,12 +48,18 @@ public class InventoryController {
         return ResponseEntity.ok("Product with the ID " + productId + " is deleted");
     }
 
+    @GetMapping("/delivery")
+    public ResponseEntity<Map<String, Integer>> getDeliveryPrice(){
+        Map<String, Integer> result = new HashMap<>();
+        result.put("deliveryPrice", 500);
+        return ResponseEntity.ok(result);
+    }
 
-    //todo: do this
-//    @PostMapping("/checkout")
-//    public ResponseEntity<Product> updateInventory(@RequestBody ProductDto productDto) {
-//        Product product = inventoryService.updateProduct(productDto);
-//        return ResponseEntity.ok(product);
-//    }
+    @PostMapping("delivery-payment")
+    public ResponseEntity<Map<String, String>> makePayemnt(@RequestBody PaymentDao paymentDao){
+        Map<String, String> result = new HashMap<>();
+        result.put("data", "Payment Successful");
+        return ResponseEntity.ok(result);
+    }
 
 }
