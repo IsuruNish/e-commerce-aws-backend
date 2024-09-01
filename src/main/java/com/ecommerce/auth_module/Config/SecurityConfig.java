@@ -51,8 +51,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedOrigins(List.of("https://app-backend.com", "http://localhost:3000")); //TODO: update backend url
-        configuration.setAllowedOrigins(List.of("http://localhost:3000")); //TODO: update backend url
+        configuration.setAllowedOrigins(List.of("http://localhost:3000", "https://develop.d1hqkx50n10np0.amplifyapp.com/"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
 
