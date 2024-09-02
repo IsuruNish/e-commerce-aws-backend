@@ -13,3 +13,5 @@ The deployment workflow follows these steps:
 2. **Build:** CodeBuild automatically builds the application, creating container images.
 3. **Push to ECR:** The container images are pushed to Amazon ECR for storage and distribution.
 4. **Deploy to ECS:** ECS deploys the updated container images to the production environment, ensuring a seamless transition.
+
+![Image description](imgs/pipeline.png)
