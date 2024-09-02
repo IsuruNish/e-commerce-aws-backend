@@ -6,6 +6,7 @@ import com.ecommerce.auth_module.Model.User;
 import com.ecommerce.auth_module.Response.LoginResponse;
 import com.ecommerce.auth_module.Service.AuthService;
 import com.ecommerce.auth_module.Service.JwtService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +21,16 @@ public class UserController {
         this.authService = authService;
     }
 
+    @GetMapping("/")
+    public ResponseEntity<String> registerUser() {
+        return ResponseEntity.ok("Health check: "+HttpStatus.OK);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody RegisterUserDto registerUserDto) {
 
         try{
             User registereduser = authService.signup(registerUserDto);
-            System.out.println(registereduser);
             return ResponseEntity.ok(registereduser.toString());
         }
         catch(Error e){
